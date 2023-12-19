@@ -176,12 +176,15 @@ Outlined below is the expected JSON output:
 
 ``` json
 {
+  "Id": "xxxxxxx",
   "Title": "xxxxxxx",
+  "Status": "xxxxxxx",
   "Description": "xxxxxxx",
   "Version": "x",
   "Release": "x ",
   "BenchmarkDate": "xxxxxxx",
   "ReleaseInfo": "xxxxxxx",
+  "Publisher": "xxxxxxx",
   "Source": "xxxxxxx",
   "Notice": "xxxxxxx",
   "Rules": [

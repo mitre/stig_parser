@@ -98,10 +98,13 @@ def test_convert_xccdf() -> None:
     assert STIG_JSON is not None, 'Unable to Parse STIG File (%s)' % STIG_FILENAME
 
     ## VALIDATE KNOWN ENTRIES
+    assert STIG_JSON['Id'] == "Docker_Enterprise_2-x_Linux-UNIX_STIG" # ID
     assert STIG_JSON['Title'] == "Docker Enterprise 2.x Linux/UNIX Security Technical Implementation Guide", "STIG Title Parsed Incorrectly"    ## STIG TITLE
+    assert STIG_JSON['Status'] == "accepted"    ## STIG STATUS
     assert STIG_JSON['BenchmarkDate'] == "19 Jul 2019"     ## BENCHMARK DATE
     assert STIG_JSON['Rules'][0]['VulnID'] == "V-94863"     ## FIRST RULE ID
     assert STIG_JSON['ReleaseInfo'] == "Release: 1 Benchmark Date: 19 Jul 2019"    ## RELEASE INFO
+    assert STIG_JSON['Publisher'] == "DISA"    ## Publisher
     assert STIG_JSON['Source'] == "STIG.DOD.MIL"    ## SOURCE
     assert STIG_JSON['Notice'] == "terms-of-use"    ## NOTICE
     assert STIG_JSON['Rules'][0]['CCI'] == "CCI-000054"    ## FIRST RULE CCI NUMBER
@@ -118,10 +121,13 @@ def test_convert_stig() -> None:
     assert STIG_JSON is not None, 'Unable to Parse STIG File (%s)' % FILENAME
 
     ## VALIDATE KNOWN ENTRIES
+    assert STIG_JSON['Id'] == "Docker_Enterprise_2-x_Linux-UNIX_STIG" # ID
     assert STIG_JSON['Title'] == "Docker Enterprise 2.x Linux/UNIX Security Technical Implementation Guide", "STIG Title Parsed Incorrectly"    ## STIG TITLE
+    assert STIG_JSON['Status'] == "accepted"    ## STIG STATUS
     assert STIG_JSON['BenchmarkDate'] == "19 Jul 2019"     ## BENCHMARK DATE
     assert STIG_JSON['Rules'][0]['VulnID'] == "V-94863"     ## FIRST RULE ID
     assert STIG_JSON['ReleaseInfo'] == "Release: 1 Benchmark Date: 19 Jul 2019"    ## RELEASE INFO
+    assert STIG_JSON['Publisher'] == "DISA"    ## Publisher
     assert STIG_JSON['Source'] == "STIG.DOD.MIL"    ## SOURCE
     assert STIG_JSON['Notice'] == "terms-of-use"    ## NOTICE
     assert STIG_JSON['Rules'][0]['CCI'] == "CCI-000054"    ## FIRST RULE CCI NUMBER

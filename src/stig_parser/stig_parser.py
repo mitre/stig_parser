@@ -111,12 +111,15 @@ def convert_xccdf(RAW):
     ## CREATE RETURNED STIG JSON
     ## TODO: ADD STIG FILENAME
     JSON_RESULTS = {
+        "Id": CONTENT_DICT['Benchmark']['@id'],
         "Title": CONTENT_DICT['Benchmark']['title'],
+        "Status": CONTENT_DICT['Benchmark']['status'],
         "Description": CONTENT_DICT['Benchmark']['description'],
         "Version": CONTENT_DICT['Benchmark']['version'],
         "Release": REL,
         "BenchmarkDate": BENCH_DATE,
         "ReleaseInfo": RELEASE_INFO,
+        "Publisher": CONTENT_DICT['Benchmark']['reference']['dc:publisher'],
         "Source": CONTENT_DICT['Benchmark']['reference']['dc:source'],
         "Notice": CONTENT_DICT['Benchmark']['notice']['@id']
     }
@@ -281,9 +284,12 @@ def generate_ckl(FILENAME, CHECKLIST_INFO):
     generate_stig_info(STIG_INFO, 'description', JSON_STIG['Description'])           ## STIG DESCRIPTION
     generate_stig_info(STIG_INFO, 'filename', 'TEMP FILENAME')               ## STIG FILENAME
     generate_stig_info(STIG_INFO, 'releaseinfo', JSON_STIG['ReleaseInfo'])           ## STIG RELEASE INFO
+    generate_stig_info(STIG_INFO, 'id', JSON_STIG['Id'])                             ## STIG Id
     generate_stig_info(STIG_INFO, 'title', JSON_STIG['Title'])                       ## STIG TITLE
+    generate_stig_info(STIG_INFO, 'status', JSON_STIG['Status'])                       ## STIG STATUS
     generate_stig_info(STIG_INFO, 'uuid', str(uuid.uuid4()))                         ## STIG UUID
     generate_stig_info(STIG_INFO, 'notice', JSON_STIG['Notice'])                     ## STIG NOTICE
+    generate_stig_info(STIG_INFO, 'publisher', JSON_STIG['Publisher'])                     ## STIG PUBLISHER
     generate_stig_info(STIG_INFO, 'source', JSON_STIG['Source'])                     ## STIG SOURCE
 
     ## GENERATE VULNERABILITIES
