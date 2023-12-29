@@ -113,7 +113,7 @@ def convert_xccdf(RAW):
     JSON_RESULTS = {
         "Id": CONTENT_DICT['Benchmark']['@id'],
         "Title": CONTENT_DICT['Benchmark']['title'],
-        "Status": CONTENT_DICT['Benchmark']['status'],
+        "Status": CONTENT_DICT['Benchmark']['status']['#text'],
         "Description": CONTENT_DICT['Benchmark']['description'],
         "Version": CONTENT_DICT['Benchmark']['version'],
         "Release": REL,
